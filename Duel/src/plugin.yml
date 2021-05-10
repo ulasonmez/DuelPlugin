@@ -1,0 +1,11 @@
+main: me.Blume.Duel.Main
+name: Duel
+author: BlumeSegal
+version: 1.0
+api-version: 1.16
+
+commands:
+  bowduel:
+    description: It will start a bow duel
+  bowduelstop:
+    description: It will end a bow duel
