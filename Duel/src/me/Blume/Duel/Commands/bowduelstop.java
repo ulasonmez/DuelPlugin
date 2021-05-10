@@ -46,6 +46,8 @@ public class bowduelstop implements CommandExecutor{
 				death.p1=0;
 				death.p2=0;
 				Main.bowduelon=0;
+				Main.player1.getInventory().clear();
+				Main.player2.getInventory().clear();
 				Main.player1.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 				Main.player2.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());   
 		}
