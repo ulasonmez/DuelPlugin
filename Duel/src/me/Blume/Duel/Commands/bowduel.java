@@ -27,11 +27,15 @@ public class bowduel implements CommandExecutor{
 				return true;
 			}
 			if(args.length==0) {
-				sender.sendMessage(ChatColor.BOLD+"You need to choose a player to duel");
+				sender.sendMessage(ChatColor.RED+"You need to choose a player to duel");
 				return true;
 			}
 			
 			Main.player1 = (Player) sender;
+			if(Bukkit.getServer().getPlayerExact(args[0])==Main.player1) {
+				Main.player1.sendMessage(ChatColor.RED+"You cant challenge yourself");
+				return true;
+			}
 			Main.player2 =Bukkit.getServer().getPlayerExact(args[0]);
 			if(Main.player2==null) {
 				Main.player1.sendMessage(ChatColor.RED+"Cannot find player with that name");
@@ -43,8 +47,12 @@ public class bowduel implements CommandExecutor{
 			Main.player2.getInventory().clear();
 			death.p1=0;
 			death.p2=0;
-			Main.player1.getInventory().addItem(item1.metaBow(),item1.metaBeefs(),item1.metaArrow());
-			Main.player2.getInventory().addItem(item1.metaBow(),item1.metaBeefs(),item1.metaArrow());
+			Main.player1.getInventory().addItem(item1.metaBow(),item1.metaPickaxe(),item1.metaBlock(),
+					item1.metaWater(),item1.metaBeefs(),item1.metaArrow());
+			Main.player1.getInventory().setArmorContents(item1.metaSet());
+			Main.player2.getInventory().addItem(item1.metaBow(),item1.metaPickaxe(),item1.metaBlock(),
+					item1.metaWater(),item1.metaBeefs(),item1.metaArrow());
+			Main.player2.getInventory().setArmorContents(item1.metaSet());
 			Main.bowduelon=1;
 			return true;
 			

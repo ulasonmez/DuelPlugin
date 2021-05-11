@@ -9,6 +9,10 @@ public class items {
 	public static ItemStack bow;
 	public static ItemStack arrow;
 	public static ItemStack beef;
+	public static ItemStack blocks;
+	public static ItemStack[] leatherarmor= new ItemStack[4];
+	public static ItemStack pickaxe;
+	public static ItemStack water;
 	public ItemStack metaBow() {
 		bow = new ItemStack(Material.BOW,1);
 		ItemMeta bowmeta = bow.getItemMeta();
@@ -26,5 +30,23 @@ public class items {
 		beef = new ItemStack(Material.COOKED_BEEF,64);
 		return beef;
 	}
-	
+	public ItemStack metaBlock() {
+		blocks = new ItemStack(Material.COBBLESTONE,64);
+		return blocks;
+	}
+	public ItemStack[] metaSet(){
+		leatherarmor[0] = new ItemStack(Material.LEATHER_BOOTS);
+		leatherarmor[1] = new ItemStack(Material.LEATHER_LEGGINGS);
+		leatherarmor[2] = new ItemStack(Material.LEATHER_CHESTPLATE);
+		leatherarmor[3] = new ItemStack(Material.LEATHER_HELMET);
+		return leatherarmor;
+	}
+	public ItemStack metaPickaxe() {
+		pickaxe = new ItemStack(Material.STONE_PICKAXE);
+		return pickaxe;
+	}
+	public ItemStack metaWater() {
+		water = new ItemStack(Material.WATER_BUCKET);
+		return water;
+	}
 }

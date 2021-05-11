@@ -1,12 +1,10 @@
 package me.Blume.Duel.Listeners;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Score;
@@ -24,9 +22,10 @@ public class death implements Listener{
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onDeath(PlayerDeathEvent event) {
-		int p1id= Main.player1.getEntityId();
-		int p2id= Main.player2.getEntityId();
+		
 		if(Main.bowduelon==1) {
+		    int p1id= Main.player1.getEntityId();
+			int p2id= Main.player2.getEntityId();
 			Player player = event.getEntity().getPlayer();
 			Player killer = event.getEntity().getKiller();
 			if(player instanceof Player && killer instanceof Player) {
@@ -55,8 +54,12 @@ public class death implements Listener{
 				pkill2.setScore(2);
 				Main.player1.setScoreboard(board);
 				Main.player2.setScoreboard(board);
-				Main.player1.getInventory().addItem(item1.metaBow(),item1.metaBeefs(),item1.metaArrow());
-				Main.player2.getInventory().addItem(item1.metaBow(),item1.metaBeefs(),item1.metaArrow());
+				Main.player1.getInventory().addItem(item1.metaBow(),item1.metaPickaxe(),item1.metaBlock(),
+						item1.metaWater(),item1.metaBeefs(),item1.metaArrow());
+				Main.player1.getInventory().setArmorContents(item1.metaSet());
+				Main.player2.getInventory().addItem(item1.metaBow(),item1.metaPickaxe(),item1.metaBlock(),
+						item1.metaWater(),item1.metaBeefs(),item1.metaArrow());
+				Main.player2.getInventory().setArmorContents(item1.metaSet());
 			}
 		}
 		else if(Main.bowduelon==0) {
