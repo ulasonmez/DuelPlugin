@@ -20,6 +20,7 @@ public class bowduel implements CommandExecutor{
 	death dead = new death();
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if(Main.bowduelon==0) {
 		if(label.equals("bowduel")) {
 			if(!(sender instanceof Player)) return true;
 			if(!(sender.isOp())) {
@@ -47,16 +48,21 @@ public class bowduel implements CommandExecutor{
 			Main.player2.getInventory().clear();
 			death.p1=0;
 			death.p2=0;
-			Main.player1.getInventory().addItem(item1.metaBow(),item1.metaPickaxe(),item1.metaBlock(),
-					item1.metaWater(),item1.metaBeefs(),item1.metaArrow());
-			Main.player1.getInventory().setArmorContents(item1.metaSet());
-			Main.player2.getInventory().addItem(item1.metaBow(),item1.metaPickaxe(),item1.metaBlock(),
-					item1.metaWater(),item1.metaBeefs(),item1.metaArrow());
-			Main.player2.getInventory().setArmorContents(item1.metaSet());
+			Main.player1.getInventory().addItem(item1.metaBow(),item1.getPickaxe(),item1.getBlock(),
+					item1.getWater(),item1.getBeefs(),item1.getArrow());
+			Main.player1.getInventory().setArmorContents(item1.getLeatherSet());
+			Main.player2.getInventory().addItem(item1.metaBow(),item1.getPickaxe(),item1.getBlock(),
+					item1.getWater(),item1.getBeefs(),item1.getArrow());
+			Main.player2.getInventory().setArmorContents(item1.getLeatherSet());
 			Main.bowduelon=1;
 			return true;
-			
+			}
+		}
+		else if(Main.bowduelon==1) {
+			sender.sendMessage(ChatColor.GREEN+"Duel is on");
+			return true;
 		}
 		return false;
+		
 	}
 }

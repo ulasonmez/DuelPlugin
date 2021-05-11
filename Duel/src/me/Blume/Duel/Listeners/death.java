@@ -54,17 +54,13 @@ public class death implements Listener{
 				pkill2.setScore(2);
 				Main.player1.setScoreboard(board);
 				Main.player2.setScoreboard(board);
-				Main.player1.getInventory().addItem(item1.metaBow(),item1.metaPickaxe(),item1.metaBlock(),
-						item1.metaWater(),item1.metaBeefs(),item1.metaArrow());
-				Main.player1.getInventory().setArmorContents(item1.metaSet());
-				Main.player2.getInventory().addItem(item1.metaBow(),item1.metaPickaxe(),item1.metaBlock(),
-						item1.metaWater(),item1.metaBeefs(),item1.metaArrow());
-				Main.player2.getInventory().setArmorContents(item1.metaSet());
+				Main.player1.getInventory().addItem(item1.metaBow(),item1.getPickaxe(),item1.getBlock(),
+						item1.getWater(),item1.getBeefs(),item1.getArrow());
+				Main.player1.getInventory().setArmorContents(item1.getLeatherSet());
+				Main.player2.getInventory().addItem(item1.metaBow(),item1.getPickaxe(),item1.getBlock(),
+						item1.getWater(),item1.getBeefs(),item1.getArrow());
+				Main.player2.getInventory().setArmorContents(item1.getLeatherSet());
 			}
-		}
-		else if(Main.bowduelon==0) {
-			Main.player1.getInventory().clear();
-			Main.player2.getInventory().clear();
 		}
 		
 	}
