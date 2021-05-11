@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.Blume.Duel.Main;
+import me.Blume.Duel.Items.saving;
 import me.Blume.Duel.Listeners.death;
 import net.md_5.bungee.api.ChatColor;
 
@@ -16,6 +17,7 @@ public class bowduelstop implements CommandExecutor{
 		this.plugin = main;
 	}
 	death dead = new death();
+	saving itemsaver1 = new saving();
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(Main.bowduelon==1) {
@@ -47,6 +49,11 @@ public class bowduelstop implements CommandExecutor{
 				death.p2=0;
 				Main.player1.getInventory().clear();
 				Main.player2.getInventory().clear();
+
+				
+				itemsaver1.setitems();
+				itemsaver1.sethealthandfood();
+				
 				Main.player1.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 				Main.player2.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());   
 				Main.bowduelon=0;
