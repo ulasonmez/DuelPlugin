@@ -1,15 +1,11 @@
 package me.Blume.Duel.Commands;
 
-import java.util.HashMap;
-import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 import me.Blume.Duel.Main;
 import me.Blume.Duel.Items.items;
@@ -36,6 +32,10 @@ public class bowduel implements CommandExecutor{
 			}
 			if(args.length==0) {
 				sender.sendMessage(ChatColor.RED+"You need to choose a player to duel");
+				return true;
+			}
+			if(args.length!=1) {
+				sender.sendMessage(ChatColor.RED+"Wrong usage!");
 				return true;
 			}
 			

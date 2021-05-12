@@ -17,8 +17,6 @@ public class Main extends JavaPlugin{
 	public static Player player1;
 	public static Player player2;
 	public static ItemStack[] inventory1;
-	public static ItemStack[] saveinventory1;
-	public static ItemStack[] saveinventory2;
 	public static ItemStack[] inventory2;
 	public static HashMap<UUID,ItemStack[]> inventories = new HashMap<>();
 	public static HashMap<UUID,Double> healths = new HashMap<>();

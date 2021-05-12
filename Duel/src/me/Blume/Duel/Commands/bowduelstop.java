@@ -27,6 +27,10 @@ public class bowduelstop implements CommandExecutor{
 					sender.sendMessage(ChatColor.RED+"You dont have permission!");
 					return true;
 				}
+				if(args.length!=0) {
+					sender.sendMessage(ChatColor.RED+"Wrong usage!");
+					return true;
+				}
 				sender.sendMessage(ChatColor.GREEN+"Bow Duel ended");
 				if(death.p1>death.p2) {
 					Bukkit.getServer().broadcastMessage(ChatColor.AQUA+""+Main.player1.getName()+": "+death.p1);
@@ -53,6 +57,8 @@ public class bowduelstop implements CommandExecutor{
 				
 				itemsaver1.setitems();
 				itemsaver1.sethealthandfood();
+				itemsaver1.removehealthandfood();
+				itemsaver1.removeitems();
 				
 				Main.player1.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 				Main.player2.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());   
